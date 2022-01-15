@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import YearList from "./components/YearList";
-import AddYearWindow from "./components/AddYearWindow";
+import { v4 as uuidv4 } from "uuid";
 // import Footer from './components/Footer';
 
 class App extends React.Component {
@@ -172,16 +172,11 @@ class App extends React.Component {
 
   addYear(yearName) {
     this.setState((state) => {
-      let maxId = 0;
-      state.years.forEach((year) => {
-        maxId = Math.max(maxId, year.id);
-      });
-
       return {
         ...state,
         years: state.years.concat([{
           hidden: false,
-          id: maxId + 1,
+          id: uuidv4(),
           name: yearName,
           courses: [],
         }]),
