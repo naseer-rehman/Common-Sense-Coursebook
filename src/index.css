@@ -29,24 +29,33 @@ code {
 body {
   background: var(--background-color);
   color: var(--color);
+  --secondary-color: var(--skyblue)
 }
 
 :root {
   --white: white;
   --black: black;
+  --skyblue: #0395DE;
+  --grey: #707070;
+  
+  --primary-text: var(--grey);
   --background-color: var(--white);
   --color: var(--white);
+  --secondary-color: var(--skyblue);
 }
 
 body.light {
   --background-color: var(--white);
   --color: var(--black);
+  --secondary-color: var(--skyblue);
 }
 
 body.dark {
   --background-color: var(--black);
   --color: var(--white);
+  --secondary-color: var(--skyblue);
 }
+
 
 button {
   margin: 0;
