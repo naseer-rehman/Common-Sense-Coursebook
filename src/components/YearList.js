@@ -23,6 +23,8 @@ class YearList extends Component {
         }
         <AddYearButton 
           openWindow={(window) => this.props.openWindow(window)}
+          closeWindow={() => this.props.closeWindow()}
+          addYear={(yearName) => this.props.addYear(yearName)}
         />
       </div>
     );
