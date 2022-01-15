@@ -1,0 +1,17 @@
+.year-button-dash.add-year-button > .plus-sign-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background: white;
+  padding: 0 2.24%;
+}
+
+.year-button-dash.add-year-button .plus-sign {
+  width: 100%;
+  height: 100%;
+  background: #0395DE;
+  -webkit-mask: url(../images/plus-sign.svg) no-repeat center;
+  mask: url(../images/plus-sign.svg) no-repeat center;
+}

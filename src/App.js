@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import YearList from "./components/YearList";
-import darkMode from "./components/darkMode";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class App extends React.Component {
     this.state = {
       years: [
         {
+          hidden: false,
           id: 1,
           name: "Year 1",
           courses: [
@@ -31,16 +31,29 @@ class App extends React.Component {
                   grade: 50,
                 }
               ],
-            }
-          ],
-        },
-        {
-          id: 2,
-          name: "Year 2",
-          courses: [
+            },
             {
-              id: 1,
-              name: "SPCOM 100",
+              id: 2,
+              name: "CS 135",
+              targetGrade: 80,
+              assessments: [
+                {
+                  id: 1,
+                  assessmentName: "quizzes",
+                  weight: 50,
+                  grade: 75,
+                },
+                {
+                  id: 2,
+                  assessmentName: "midterm",
+                  weight: 25,
+                  grade: 50,
+                }
+              ],
+            },
+            {
+              id: 3,
+              name: "MATH 136",
               targetGrade: 80,
               assessments: [
                 {
@@ -60,12 +73,39 @@ class App extends React.Component {
           ],
         },
         {
+          hidden: false,
+          id: 2,
+          name: "Year 2",
+          courses: [
+            {
+              id: 1,
+              name: "CS 246",
+              targetGrade: 80,
+              assessments: [
+                {
+                  id: 1,
+                  assessmentName: "quizzes",
+                  weight: 50,
+                  grade: 75,
+                },
+                {
+                  id: 2,
+                  assessmentName: "midterm",
+                  weight: 25,
+                  grade: 50,
+                }
+              ],
+            }
+          ],
+        },
+        {
+          hidden: true,
           id: 3,
           name: "Year 3",
           courses: [
             {
               id: 1,
-              name: "SPCOM 100",
+              name: "COMPSCI 1ZD3",
               targetGrade: 80,
               assessments: [
                 {
@@ -86,14 +126,43 @@ class App extends React.Component {
         }
       ],
     };
-    
+  }
+
+  toggleYearVisible(yearId, isVisible) {
+    // this.setState(
+    //   {
+    //     ...this.state,
+    //     years: this.state.years.map(year => {
+    //       return {
+    //         ...year,
+    //         hidden: yearId == year.id ? isVisible : year.hidden,
+    //       }
+    //     })
+    //   }
+    // );
+    console.log(`Want to toggle ${yearId} to ${isVisible}`);
+    this.setState((state) => {
+      console.log(state.years);
+      return {
+        ...state,
+        years: state.years.map(year => {
+          return {
+            ...year,
+            hidden: yearId == year.id ? !isVisible : year.hidden,
+          };
+        }),
+      };
+    });
   }
 
   render() {
     return (
       <>
         <Header />
-        <YearList yearList={this.state.years} />
+        <YearList 
+          toggleYearVisible={(yearId, isVisible) => this.toggleYearVisible(yearId, isVisible)}
+          yearList={this.state.years} 
+        />
       </>
     );
   }

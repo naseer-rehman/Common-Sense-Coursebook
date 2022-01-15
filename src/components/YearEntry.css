@@ -6,8 +6,9 @@
 
 .year-title-container {
   height: 50px;
-  background: red;
+  /* background: red; */
   position: relative;
+  margin-bottom: 30px;
   /* overflow: hidden; */
 }
 
@@ -54,4 +55,9 @@ button.year-title-button {
 .year-title {
   margin: 0;
   padding: 0;
+}
+
+.course-card-list {
+  display: flex;
+  flex-flow: row wrap;
 }
