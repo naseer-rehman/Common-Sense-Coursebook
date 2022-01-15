@@ -1,3 +1,67 @@
+.dark-mode {
+  background-color: black;
+}
+
+.header-title span {
+  color: #0395DE;
+
+}
+
 .header {
-  color: red;
+  overflow: hidden;
+  margin-top: 1%;
+  padding: 20px;
+}
+
+.header a {
+  float: left;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header a.header-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-right {
+  float: right;
+  font-size: 25px;
+  margin-right: 5%;
+}
+
+.header-right a {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  width: 175px;
+  height: 57px;
+
+}
+
+.header-right a img {
+  width: 75%;
+  height: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.help-button span {
+  border-radius: 14px;
+  width: 175px;
+  height: 57px;
+  display: inline-block;
+  padding: 0;
+  background-color: #FFFFFF;
+  border: 1px solid #707070;
+  color: #707070;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

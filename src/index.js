@@ -7,3 +7,8 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+
+function darkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}

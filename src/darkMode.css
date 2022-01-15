@@ -1,0 +1,18 @@
+#darkMode {
+    background: transparent url("../images/darkmode.svg") no-repeat center;
+    width: 175px;
+    height: 57px;
+    filter: grayscale(100%);
+    transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+#darkMode:hover, #darkMode:focus {
+    filter: none;
+    background-color: black;
+    cursor: pointer;
+}
+
+#darkMode.clicked {
+    filter: none !important;
+    background-color: black;
+}
