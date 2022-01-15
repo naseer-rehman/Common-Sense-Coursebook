@@ -170,6 +170,25 @@ class App extends React.Component {
     // adds course to the specified year Id.
   }
 
+  addYear(yearName) {
+    this.setState((state) => {
+      let maxId = 0;
+      state.years.forEach((year) => {
+        maxId = Math.max(maxId, year.id);
+      });
+
+      return {
+        ...state,
+        years: state.years.concat([{
+          hidden: false,
+          id: maxId + 1,
+          name: yearName,
+          courses: [],
+        }]),
+      };
+    });
+  }
+
   render() {
     return (
       <>
@@ -178,6 +197,8 @@ class App extends React.Component {
           toggleYearVisible={(yearId, isVisible) => this.toggleYearVisible(yearId, isVisible)}
           yearList={this.state.years}
           openWindow={(window) => this.openWindow(window)}
+          closeWindow={() => this.closeWindow()}
+          addYear={(yearName) => this.addYear(yearName)}
         />
         {this.state.currentWindow}
       </>
