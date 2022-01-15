@@ -1,67 +1,137 @@
-.dark-mode {
-  background-color: black;
+
+/*.header {
+  position: relative;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
-.header-title span {
-  color: #0395DE;
-
+.header-left {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
 }
 
-.header {
-  overflow: hidden;
-  margin-top: 1%;
-  padding: 20px;
-}
-
-.header a {
-  float: left;
-  text-align: center;
-  text-decoration: none;
-}
-
-.header a.header-title {
+.header-title {
   font-size: 32px;
   font-weight: bold;
+  display: inline-block;
 }
 
 .header-right {
-  float: right;
+  list-style: none;
+  display: flex;
+  height: 100%;
   font-size: 25px;
-  margin-right: 5%;
+  
 }
 
 .header-right a {
+  display: inline-block;
   border: none;
   text-align: center;
   text-decoration: none;
-  display: block;
   position: relative;
-  width: 175px;
-  height: 57px;
+  width: 70px;
+  height: 70px;
+  margin: 0.30rem;
 
 }
 
-.header-right a img {
-  width: 75%;
-  height: 75%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.header-right a.help-button {
+  width: auto;
 }
+
 
 .help-button span {
+  padding: 0;
   border-radius: 14px;
   width: 175px;
   height: 57px;
-  display: inline-block;
-  padding: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #707070;
-  color: #707070;
-  justify-content: center;
-  text-align: center;
   display: flex;
+  background-color: #FFFFFF;
+  border: 2px solid #707070;
+  color: #707070;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}*/
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  height: 70px;
+}
+
+.left a{
+  font-size: 32px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.left span {
+  color: #0395DE;
+}
+
+.main > div {
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.right {
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.right button {
+  font-size: 25px;
+}
+
+div.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.space-between > div {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  background: white;
+  margin: 0 20px;
+  padding: 0;
+}
+
+
+.help {
+  padding: 0;
+  border-radius: 14px;
+  width: 175px;
+  height: 57px;
+  display: flex;
+  background-color: #FFFFFF;
+  border: 2px solid #707070;
+  color: #707070;
+  text-align: center;
   justify-content: center;
   align-items: center;
 }

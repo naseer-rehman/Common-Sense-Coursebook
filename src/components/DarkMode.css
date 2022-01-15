@@ -1,0 +1,37 @@
+#darkMode {
+  background: transparent url("../images/darkmode.svg") no-repeat center;
+  background-size: 40px 40px;
+  width: 70px;
+  height: 57px;
+  border-radius: 14px;
+  padding: 0;
+  background-color: #FFFFFF;
+  border: 2px solid #707070;
+  color: #707070;
+  justify-content: center;
+  text-align: center;
+  display: flex;;
+  align-items: center;
+  margin: 0.30rem;
+}
+
+#darkMode.clicked {
+  filter: none !important;
+  mask: url("../images/lightmode.svg") no-repeat center;
+  width: 70px;
+  height: 57px;
+  border-radius: 14px;
+  padding: 0;
+  background-color: black;
+  border: 2px solid #707070;
+  color: #707070;
+  justify-content: center;
+  text-align: center;
+  display: flex;;
+  align-items: center;
+  margin: 0.30rem;
+}
+
+body.dark {
+  color: white;
+}

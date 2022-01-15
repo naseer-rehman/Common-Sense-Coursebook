@@ -1,3 +1,8 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Menlo, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,10 +10,52 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scroll-bar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 code {
   font-family: source-code-pro, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--color);
+}
+
+:root {
+  --white: white;
+  --black: black;
+  --background-color: var(--white);
+  --color: var(--white);
+}
+
+body.light {
+  --background-color: var(--white);
+}
+
+body.dark {
+  --background-color: var(--black);
+
+}
+
+button {
+  margin: 0;
+  padding: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.lock-scroll {
+  overflow: hidden;
 }
