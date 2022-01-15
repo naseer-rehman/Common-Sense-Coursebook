@@ -4,12 +4,7 @@ import YearEntry from "./YearEntry";
 import AddYearButton from "./AddYearButton";
 
 class YearList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-
     return (
       <div className="year-list">
         {
@@ -26,7 +21,9 @@ class YearList extends Component {
             />;
           })
         }
-        <AddYearButton />
+        <AddYearButton 
+          openWindow={(window) => this.props.openWindow(window)}
+        />
       </div>
     );
   }

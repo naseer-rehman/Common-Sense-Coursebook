@@ -22,7 +22,7 @@ class YearEntry extends React.Component {
         </div>
         <div className="course-card-list">
           {
-            this.props.coursesHidden == false 
+            this.props.coursesHidden === false 
               ? (
                 <>
                   {this.props.courses.map(course => <CourseCard key={course.id} course={course} />)}

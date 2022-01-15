@@ -2,6 +2,8 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import YearList from "./components/YearList";
+import AddYearWindow from "./components/AddYearWindow";
+// import Footer from './components/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -125,22 +127,12 @@ class App extends React.Component {
           ],
         }
       ],
+      theme: "light",
+      currentWindow: null, //<AddYearWindow />,
     };
   }
 
   toggleYearVisible(yearId, isVisible) {
-    // this.setState(
-    //   {
-    //     ...this.state,
-    //     years: this.state.years.map(year => {
-    //       return {
-    //         ...year,
-    //         hidden: yearId == year.id ? isVisible : year.hidden,
-    //       }
-    //     })
-    //   }
-    // );
-    console.log(`Want to toggle ${yearId} to ${isVisible}`);
     this.setState((state) => {
       console.log(state.years);
       return {
@@ -148,11 +140,34 @@ class App extends React.Component {
         years: state.years.map(year => {
           return {
             ...year,
-            hidden: yearId == year.id ? !isVisible : year.hidden,
+            hidden: yearId === year.id ? !isVisible : year.hidden,
           };
         }),
       };
     });
+  }
+
+  openWindow(window) {
+    // Make page non-scrollable (body overflow hidden)
+    this.setState((state) => {
+      return {
+        ...state,
+        currentWindow: window,
+      };
+    });
+  }
+
+  closeWindow() {
+    this.setState((state) => {
+      return {
+        ...state,
+        currentWindow: null,
+      };
+    });
+  }
+
+  addCourse(yearId) {
+    // adds course to the specified year Id.
   }
 
   render() {
@@ -161,8 +176,10 @@ class App extends React.Component {
         <Header />
         <YearList 
           toggleYearVisible={(yearId, isVisible) => this.toggleYearVisible(yearId, isVisible)}
-          yearList={this.state.years} 
+          yearList={this.state.years}
+          openWindow={(window) => this.openWindow(window)}
         />
+        {this.state.currentWindow}
       </>
     );
   }
