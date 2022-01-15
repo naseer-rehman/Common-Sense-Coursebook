@@ -1,5 +1,5 @@
 # Common Sense Coursebook
-A course book for managing grades with persistent storage. Created by Naseer Rehman, Sufyan Motala and Ayaz Lockhat for Deltahacks 2022.
+A course book for managing grades with persistent storage. Created by Naseer Rehman, Sufyan Motala and Ayaz Lockhat for Deltahacks 2022. Made with React.js.
 
 ## AdobeXD Prototyping
 ![Main dashboard.](https://user-images.githubusercontent.com/91574262/149611851-6168a4fe-0bb4-4182-a15d-3bdf4d75ed01.png)
