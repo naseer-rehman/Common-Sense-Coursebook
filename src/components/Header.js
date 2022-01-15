@@ -11,18 +11,6 @@ class Header extends React.Component {
   render() {
 
     return (
-      /*<div className="header">
-        <div className="header-left">
-          <a className="header-title"><span>C</span>ommon <span>S</span>ense <span>C</span>oursebook</a>
-        </div>
-
-        <div className="header-right">
-          <DarkMode />
-          <a href="#help" className="help-button"><span>Help</span></a>
-        </div>
-
-      </div>*/
-
       <div className="main">
         <div className="left">
           <a className="header-title"><span>C</span>ommon <span>S</span>ense <span>C</span>oursebook</a>
@@ -32,7 +20,7 @@ class Header extends React.Component {
           <div className="main space-between">
             <div>
               <DarkMode />
-              <button class="help">Help</button>
+              <button className="help">Help</button>
             </div>
           </div>
         </div>
