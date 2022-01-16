@@ -1,9 +1,9 @@
 import React from "react";
 import "./DarkMode.css";
-import darkImage from "../images/darkmode.svg"
+// import darkImage from "../images/darkmode.svg"
 
 const DarkMode = () => {
-    let clickedClass = "clicked";
+    const clickedClass = "clicked";
     const body = document.body;
     const lightTheme = "light";
     const darkTheme = "dark";
@@ -20,28 +20,24 @@ const DarkMode = () => {
     }
   
     const switchTheme = (e) => {
+      const button = document.querySelector("#darkMode");
       if (theme === darkTheme) {
         body.classList.replace(darkTheme, lightTheme);
-        e.target.classList.remove(clickedClass);
+        button.classList.remove(clickedClass);
         localStorage.setItem("theme", "light");
         theme = lightTheme;
       } else {
         body.classList.replace(lightTheme, darkTheme);
-        e.target.classList.add(clickedClass);
+        button.classList.add(clickedClass);
         localStorage.setItem("theme", "dark");
         theme = darkTheme;
       }
     };
   
     return (
-
-            <button
-              className={theme === "dark" ? clickedClass : ""}
-              id="darkMode"
-              onClick={(e) => switchTheme(e)}>
-            </button>
-
-  
+      <button className="theme-button" id="darkMode" onClick={(e) => switchTheme(e)}>
+        <div className="theme-button-logo"></div>
+      </button>
     );
   };
   

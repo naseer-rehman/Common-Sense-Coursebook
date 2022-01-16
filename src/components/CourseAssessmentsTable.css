@@ -1,0 +1,25 @@
+.assessments-table-container {
+  width: 88.5%;
+}
+
+.course-assessments-table {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%; /* 31.37% 31.37% 31.37% auto; */
+  font-size: 1.9375rem;
+  font-weight: semi-bold;
+  margin-top: 25px;
+}
+
+.course-assessments-table > * {
+  border: 2px solid grey;
+  margin: -1px;
+}
+
+.window-container .add-row-button {
+  width: 100%;
+  margin: 0;
+  margin-top: 25px;
+  border-color: var(--skyblue);
+  color: var(--skyblue);
+}

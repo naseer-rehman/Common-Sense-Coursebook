@@ -19,10 +19,13 @@
 
 .center-content {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .window-scrollable {
   max-height: 79.8%;
+  /* overflow-y: scroll; May want to remove later */
 }
 
 .window-footer {

@@ -3,27 +3,27 @@ body {
   padding: 0;
 }
 
-.main {
+.header {
   position: relative;
   height: 70px;
 }
 
-.left a{
+.header-left a{
   font-size: 32px;
   font-weight: bold;
   display: inline-block;
 }
 
-.left span {
+.header-left span {
   color: var(--secondary-color);
 }
 
-.main > div {
+.header > div {
   display: flex;
   align-items: center;
 }
 
-.left {
+.header-left {
   height: 100%;
   width: 50%;
   position: absolute;
@@ -31,7 +31,7 @@ body {
   top: 0;
 }
 
-.right {
+.header-right {
   height: 100%;
   width: 20%;
   position: absolute;
@@ -39,38 +39,39 @@ body {
   top: 0;
 }
 
-.right button {
+.header-right button {
   font-size: 25px;
 }
 
-div.space-between {
+div.header-space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.space-between > div {
+.header-space-between > div {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   min-height: 50px;
-  background: var(--white);
+  
   margin: 0 20px;
   padding: 0;
 }
 
 
-.help {
+.help-button {
   padding: 0;
   border-radius: 14px;
   width: 175px;
   height: 57px;
   display: flex;
-  background-color: var(--white);
-  border: 2px solid var(--primary-text);
-  color: var(--primary-text);
+  background-color: transparent;
+  border: 2px solid var(--skyblue);
+  color: var(--skyblue);
   text-align: center;
   justify-content: center;
   align-items: center;
 }
+
 

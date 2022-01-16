@@ -208,6 +208,39 @@ class App extends React.Component {
     });
   }
 
+  addAssessment(yearId, courseId, assessment) {
+    this.setState((state) => {
+      return {
+        ...state,
+        years: state.years.map((year) => {
+          if (year.id !== yearId)
+            return year;
+          return {
+            ...year,
+            courses: year.courses.map((course) => {
+              if (course.id !== courseId)
+                return course;
+              return {
+                ...course,
+                assessments: course.assessments.concat([{
+                  ...assessment
+                }]),
+              }
+            }),
+          }
+        }),
+      };
+    });
+  }
+
+  editAssessment(yearId, courseId, assessmentId, editedProperties) {
+
+  }
+
+  deleteAssessment(yearId, courseId, assessmentId) {
+
+  }
+
   render() {
     return (
       <>
