@@ -15,7 +15,7 @@
 .year-title-container button {
   display: inline-block;
   border: none;
-  background: white;
+  background: var(--background-color);
   margin: 0;
   padding: 0;
   position: absolute;

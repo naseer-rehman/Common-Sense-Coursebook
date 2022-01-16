@@ -4,6 +4,14 @@
   flex-direction: column;
 }
 
+.trash-sign {
+  width: 100%;
+  height: 100%;
+  background: black;
+  -webkit-mask: url(../images/trash-sign.svg) no-repeat center;
+  mask: url(../images/trash-sign.svg) no-repeat center;
+}
+
 .plus-sign-container {
   aspect-ratio: 1 / 1;
 }

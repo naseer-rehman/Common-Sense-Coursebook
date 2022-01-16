@@ -3,7 +3,7 @@ import './App.css';
 import Header from "./components/Header";
 import YearList from "./components/YearList";
 import { v4 as uuidv4 } from "uuid";
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -184,6 +184,30 @@ class App extends React.Component {
     });
   }
 
+  editYearName(yearId, newYearName) {
+    this.setState((state) => {
+      return {
+        ...state,
+        years: state.years.map((year) => {
+          return year.id === yearId
+            ? {...year, name: newYearName}
+            : year;
+        }),
+      };
+    });
+  }
+
+  deleteYear(yearId) {
+    this.setState((state) => {
+      return {
+        ...state,
+        years: state.years.filter((year) => {
+          return year.id !== yearId;
+        }),
+      };
+    });
+  }
+
   render() {
     return (
       <>
@@ -194,8 +218,11 @@ class App extends React.Component {
           openWindow={(window) => this.openWindow(window)}
           closeWindow={() => this.closeWindow()}
           addYear={(yearName) => this.addYear(yearName)}
+          editYearName={(yearId, yearName) => this.editYearName(yearId, yearName)}
+          deleteYear={(yearId) => this.deleteYear(yearId)}
         />
         {this.state.currentWindow}
+        <Footer />
       </>
     );
   }

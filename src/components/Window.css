@@ -12,7 +12,7 @@
 
 .window-container {
   background: #FFFFFF;
-  padding: 40px 60px;
+  padding: 40px 250px;
   border-radius: 15px;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16);
 }
@@ -68,18 +68,42 @@
   height: 50px;
   font-size: 1.8125rem;
   font-weight: semi-bold;
+  margin: 0 15px;
 }
 
+.window-container .delete-button {
+  --delete-color: #c03240;
+  color: var(--delete-color);
+  border-color: var(--delete-color);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.window-container .cancel-button {
+  --cancel-color: #c03240;
+  color: var(--cancel-color);
+  border-color: var(--cancel-color);
+}
 
-.finish-button {
+.window-footer-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-footer-button-container .left-half {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-container .finish-button {
   --finish-color: #00cf0e;
   color: var(--finish-color);
   border-color: var(--finish-color);
 }
 
-.cancel-button {
-  --cancel-color: #c03240;
-  color: var(--cancel-color);
-  border-color: var(--cancel-color);
-}

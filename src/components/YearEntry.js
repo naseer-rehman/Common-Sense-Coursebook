@@ -2,8 +2,20 @@ import React from "react";
 import "./YearEntry.css";
 import CourseCard from "./CourseCard";
 import AddCourseButton from "./AddCourseButton";
+import EditYearWindow from "./EditYearWindow";
 
 class YearEntry extends React.Component {
+  onTitleClick(e) {
+    e.preventDefault();
+    this.props.openWindow(
+      <EditYearWindow
+        closeWindow={this.props.closeWindow}
+        editYearName={this.props.editYearName}
+        deleteYear={this.props.deleteYear}
+      />
+    );
+  }
+
   render() {
     return (
       <div className="year-container">
@@ -16,7 +28,10 @@ class YearEntry extends React.Component {
           >
             <span></span>
           </button>
-          <button className="year-title-button">
+          <button 
+            className="year-title-button"
+            onClick={(e) => this.onTitleClick(e)}
+          >
             <span className="year-title">{this.props.name}</span>
           </button>
         </div>
@@ -26,7 +41,10 @@ class YearEntry extends React.Component {
               ? (
                 <>
                   {this.props.courses.map(course => <CourseCard key={course.id} course={course} />)}
-                  <AddCourseButton />
+                  <AddCourseButton 
+                    openWindow={this.props.openWindow}
+                    closeWindow={this.props.closeWindow}
+                  />
                 </>
               )
               : null
