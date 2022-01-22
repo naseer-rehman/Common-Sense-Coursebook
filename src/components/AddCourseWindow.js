@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./AddCourseWindow.css";
 import CourseAssessmentsTable from "./CourseAssessmentsTable";
 import Window from "./Window";
@@ -9,8 +10,14 @@ class AddCourseWindow extends React.Component {
     this.state = {
       courseNameValue: "",
       targetGradeValue: "",
-      assessments: [],
+      assessments: [], // [{id:1, name:"Quizzes", grade:69, weight:50},{id:2, name:"Midterm", grade:69, weight:50},{id:3, name:"Assignments", grade:69, weight:50}],
     };
+    this.onEditName = this.onEditName.bind(this);
+    this.onEditTargetGrade = this.onEditTargetGrade.bind(this);
+    this.deleteAssessment = this.deleteAssessment.bind(this);
+    this.updateAssessment = this.updateAssessment.bind(this);
+    this.addAssessment = this.addAssessment.bind(this);
+    this.setAssessments = this.setAssessments.bind(this);
   }
   
   setAssessments(newAssessments) {
@@ -26,20 +33,55 @@ class AddCourseWindow extends React.Component {
     this.setState(state => {
       return {
         ...state,
-        assessments: state.assessments.concat([assessment]),
+        assessments: state.assessments.concat([{
+          ...assessment,
+          assessmentName: assessment.name,
+          id: uuidv4(),
+          weight: Number(assessment.weight),
+          grade: Number(assessment.grade),
+        }]),
       };
     });
   }
 
-  editAssessment(assessmentId, editedAssessment) {
+  updateAssessment(assessmentId, updatedProperties) {
     this.setState(state => {
       return {
         ...state,
         assessments: state.assessments.map(assessment => {
           return assessment.id !== assessmentId
             ? assessment
-            : { ...editedAssessment, id: assessmentId };
+            : { ...assessment, ...updatedProperties };
         }),
+      };
+    });
+  }
+
+  deleteAssessment(assessmentId) {
+    this.setState(state => {
+      return  {
+        ...state,
+        assessments: state.assessments.filter(assessment => assessment.id !== assessmentId),
+      }
+    });
+  }
+
+  onEditName(e) {
+    const value = e.target.value;
+    this.setState(state => {
+      return {
+        ...state,
+        courseNameValue: value,
+      };
+    });
+  }
+
+  onEditTargetGrade(e) {
+    const value = e.target.value;
+    this.setState(state => {
+      return {
+        ...state,
+        targetGradeValue: value,
       };
     });
   }
@@ -49,27 +91,35 @@ class AddCourseWindow extends React.Component {
   }
 
   onFinish() {
-
+    console.log(`Target Grade: ${this.state.targetGradeValue}`, `Course Name: ${this.state.courseNameValue}`, "Assessments: ", this.state.assessments);
+    this.props.addCourse({
+      id: uuidv4(),
+      name: this.state.courseNameValue,
+      targetGrade: parseInt(this.state.targetGradeValue),
+      assessments: this.state.assessments.concat([]),
+    });
+    this.props.closeWindow();
   }
 
   render() {
     return (
-      <Window>
+      <Window classes={[]} >
         <div className="window-scrollable">
           <div className="center-content">
             <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
               <label htmlFor="courseNameInput">Course Name: </label>
-              <input id="courseNameInput" type="text" />
+              <input onChange={this.onEditName} id="courseNameInput" type="text" />
               <label htmlFor="targetGradeInput">Target Grade: </label>
-              <input id="targetGradeInput" type="text" />
+              <input onChange={this.onEditTargetGrade} id="targetGradeInput" type="text" />
             </form>
           </div>
           <div className="center-content">
             <CourseAssessmentsTable
-              initialAssessments={[{id:1, name:"Quizzes", grade:69, weight:50},{id:2, name:"Midterm", grade:69, weight:50},{id:3, name:"Assignments", grade:69, weight:50}]}
-              setAssessments={(assessments) => this.setAssessments(assessments)}
-              addAssessment={(assessment) => this.addAssessment(assessment)}
-              editAssessment={(assessmentId, editedAssessment) => this.editAssessment(assessmentId, editedAssessment)}
+              initialAssessments={this.state.assessments}
+              setAssessments={this.setAssessments}
+              addAssessment={this.addAssessment}
+              updateAssessment={this.updateAssessment}
+              deleteAssessment={this.deleteAssessment}
             />
           </div>
         </div>

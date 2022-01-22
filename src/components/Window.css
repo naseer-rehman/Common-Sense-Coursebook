@@ -17,6 +17,10 @@
   box-shadow: 0 3px 14px rgba(0,0,0,0.16);
 }
 
+.window-full-height {
+  height: 80%;
+}
+
 .center-content {
   text-align: center;
   display: flex;

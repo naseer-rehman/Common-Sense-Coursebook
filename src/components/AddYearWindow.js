@@ -33,7 +33,7 @@ class AddYearWindow extends React.Component {
       <Window>
         <div className="window-scrollable">
           <div className="center-content">
-            <form onSubmit={(e) => e.preventDefault()} autocomplete="off">
+            <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
               <label htmlFor="yearNameInput">Year Name: </label>
               <input id="yearNameInput" type="text" onChange={(e) => this.onInputChange(e)} />
             </form>

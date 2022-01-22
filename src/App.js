@@ -130,6 +130,7 @@ class App extends React.Component {
       theme: "light",
       currentWindow: null, //<AddYearWindow />,
     };
+    this.addCourse = this.addCourse.bind(this);
   }
 
   toggleYearVisible(yearId, isVisible) {
@@ -166,8 +167,14 @@ class App extends React.Component {
     });
   }
 
-  addCourse(yearId) {
-    // adds course to the specified year Id.
+  addCourse(yearId, course) {
+    this.setState(state => {
+      const year = state.years.find(year => year.id === yearId);
+      if (!year)
+        return state;
+      year.courses.push(course);
+      return { ...state };
+    });
   }
 
   addYear(yearName) {
@@ -234,7 +241,19 @@ class App extends React.Component {
   }
 
   editAssessment(yearId, courseId, assessmentId, editedProperties) {
-
+    this.setState(state => {
+      const year = state.years.find(year => year.id === yearId);
+      const course = year 
+        ? year.courses.find(course => course.id === courseId) 
+        : null;
+      const assessment = course 
+        ? course.assessments.find(assessment => assessment.id === assessmentId)
+        : null;
+      for (const key of editedProperties.keys()) {
+        assessment[key] = editedProperties[key];
+      }
+      return {...state};
+    });
   }
 
   deleteAssessment(yearId, courseId, assessmentId) {
@@ -253,6 +272,7 @@ class App extends React.Component {
           addYear={(yearName) => this.addYear(yearName)}
           editYearName={(yearId, yearName) => this.editYearName(yearId, yearName)}
           deleteYear={(yearId) => this.deleteYear(yearId)}
+          addCourse={this.addCourse}
         />
         {this.state.currentWindow}
         <Footer />

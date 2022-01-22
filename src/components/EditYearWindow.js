@@ -50,7 +50,7 @@ class EditYearWindow extends Component {
           <div className="edit-year-buttons window-footer-button-container">
             <div className="left-half">
               <button onClick={() => this.onDelete()} className="delete-button">
-                <div class="trash-sign"></div>
+                <div className="trash-sign"></div>
               </button>
               <button onClick={() => this.onCancel()} className="cancel-button">Cancel</button>
             </div>

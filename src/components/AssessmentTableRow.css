@@ -4,3 +4,22 @@
   border: 2px solid grey;
   text-align: center;
 }
+
+.window-container .course-assessments-table .delete-button {
+  width: auto;
+  height: 80%;
+  aspect-ratio: 1;
+  position: absolute;
+  margin: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(calc(100% + 10px), -50%);
+  border-radius: 10px;
+}
+
+.window-container .course-assessments-table .trash-sign {
+  width: auto;
+  height: 80%;
+  aspect-ratio: 1;
+  background: #c03240;
+}

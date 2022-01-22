@@ -4,66 +4,43 @@ import "./CourseAssessmentsTable.css";
 import AssessmentTableRow from "./AssessmentTableRow";
 
 class CourseAssessmentsTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      assessments: this.props.initialAssessments,
-    };
-  }
-  
-  addAssessment(assessment) {
-    this.setState((state) => {
-      return {
-        ...state,
-        assessments: state.assessments.concat([{
-          ...assessment,
-          id: uuidv4(),
-        }]),
-      };
+  addBlankAssessment() {
+    this.props.addAssessment({
+      name: "",
+      grade: "",
+      weight: ""
     });
-  }
-
-  updateAssessment(assessmentId, updatedProperties) {
-    console.log("updating assessment");
-    this.setState(state => {
-      return {
-        ...state,
-        assessments: state.assessments.map(assessment => {
-          return assessment.id !== assessmentId
-            ? assessment
-            : { ...assessment, ...updatedProperties };
-        }),
-      };
-    });
-  }
-
-  onLostFocus() {
-    // update the assessment's fields
   }
 
   render() {
     return (
       <div className="assessments-table-container">
-        <div className="course-assessments-table">
-          <div>Name</div>
-          <div>Grade</div>
-          <div>Weight</div>
+        <form className="course-assessments-table" autoComplete="off">
+          <div className="assessments-table-grid-cell">Name</div>
+          <div className="assessments-table-grid-cell">Grade</div>
+          <div className="assessments-table-grid-cell">Weight</div>
           {
-            this.state.assessments.map((assessment) => {
+            this.props.initialAssessments.map((assessment) => {
               return (
                 <AssessmentTableRow 
                   key={assessment.id}
-                  assessmentName={assessment.name}
+                  assessmentName={assessment.name} // Just send the assessment obj
                   assessmentGrade={assessment.grade}
                   assessmentWeight={assessment.weight}
                   assessmentId={assessment.id}
-                  updateAssessment={(assessmentId, updatedProperties) => this.updateAssessment(assessmentId, updatedProperties)}
+                  updateAssessment={this.props.updateAssessment}
+                  deleteAssessment={this.props.deleteAssessment}
                 />
               );
             })
           }
-        </div>
-        <button className="add-row-button">Add Row</button>
+        </form>
+        <button 
+          onClick={(e) => this.addBlankAssessment()}
+          className="add-row-button"
+        >
+          Add Row
+        </button>
       </div>
     );
   }

@@ -9,6 +9,7 @@ class AssessmentTableRow extends React.Component {
       weight: this.props.assessmentWeight,
       grade: this.props.assessmentGrade,
     };
+    this.onDeleteAssessment = this.onDeleteAssessment.bind(this);
   }
 
   editName(e) {
@@ -42,7 +43,6 @@ class AssessmentTableRow extends React.Component {
   }
 
   onBlur() {
-    console.log("gonna invoke da ", this.props.updateAssessment);
     this.props.updateAssessment(
       this.props.assessmentId,
       {
@@ -53,26 +53,41 @@ class AssessmentTableRow extends React.Component {
     );
   }
 
+  onDeleteAssessment(e) {
+    e.preventDefault();
+    this.props.deleteAssessment(this.props.assessmentId);
+  }
+
   render() {
     const { name, weight, grade } = this.state;
 
     return (
       <>
-        <input 
+        <input
+          autoComplete="new-password" 
           onBlur={() => this.onBlur()}
           onChange={(e) => this.editName(e)} 
-          value={name} 
+          value={name}
+          className="assessments-table-grid-cell"
         />
-        <input 
+        <input
+          autoComplete="new-password" 
           onBlur={() => this.onBlur()}
           onChange={(e) => this.editGrade(e)} 
           value={grade}
+          className="assessments-table-grid-cell"
         />
-        <input 
-          onBlur={() => this.onBlur()}
-          onChange={(e) => this.editWeight(e)} 
-          value={weight}
-        />
+        <div className="assessments-table-grid-cell">
+          <input
+            autoComplete="new-password" 
+            onBlur={() => this.onBlur()}
+            onChange={(e) => this.editWeight(e)} 
+            value={weight}
+          />
+          <button className="delete-button" onClick={this.onDeleteAssessment}>
+            <div className="trash-sign"></div>
+          </button>
+        </div>
       </>
     );
   }

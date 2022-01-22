@@ -10,9 +10,12 @@ class Window extends React.Component {
 
   render() {
     body.classList.add("lock-scroll");
+    let containerClasses = "window-container" + (this.props.classes 
+      ? " " + this.props.classes.join(" ")
+      : "");
     return (
       <div className="window-background">
-        <div className="window-container">
+        <div className={containerClasses}>
           {this.props.children}
         </div>
       </div>

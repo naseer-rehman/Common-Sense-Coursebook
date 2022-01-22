@@ -1,20 +1,88 @@
-.assessments-table-container {
+.window-container .assessments-table-container {
   width: 88.5%;
 }
 
-.course-assessments-table {
+.window-container .course-assessments-table {
   width: 100%;
   display: grid;
-  grid-template-columns: 33% 33% 33%; /* 31.37% 31.37% 31.37% auto; */
+  grid-template-columns: 33.33% 33.33% 33.33%; /* 31.37% 31.37% 31.37% auto; */
   font-size: 1.9375rem;
   font-weight: semi-bold;
   margin-top: 25px;
 }
 
-.course-assessments-table > * {
+.window-container .course-assessments-table .assessments-table-grid-cell {
+  width: 100%;
+  height: 100%;
+  background: none;
+  position: relative;
+  border-radius: 0;
+  border: 2px solid grey;
+  border-width: 2px 2px 0 0;
+  color: var(--color);
+  padding: 0;
+}
+
+.window-container .course-assessments-table .assessments-table-grid-cell:nth-child(3n+1) {
+  border-width: 2px 2px 0 2px;
+}
+
+.window-container .course-assessments-table .assessments-table-grid-cell:nth-last-child(1), .window-container .course-assessments-table .assessments-table-grid-cell:nth-last-child(2) {
+  border-width: 2px 2px 2px 0;
+}
+
+.window-container .course-assessments-table .assessments-table-grid-cell:nth-last-child(3) {
+  border-width: 2px 2px 2px 2px;
+}
+
+.window-container .course-assessments-table .assessments-table-grid-cell > input {
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* .window-container .course-assessments-table > * {
   border: 2px solid grey;
   margin: -1px;
+  width: 100%;
+  height: 100%;
 }
+
+.window-container .course-assessments-table > input {
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: none;
+  color: var(--color);
+  font-size: 1.9375rem;
+}
+
+.window-container .course-assessments-table > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.window-container .course-assessments-table > div > input {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  color: var(--color);
+  font-size: 1.9375rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+} */
 
 .window-container .add-row-button {
   width: 100%;

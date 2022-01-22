@@ -8,6 +8,7 @@ class AddCourseButton extends React.Component {
     this.props.openWindow(
       <AddCourseWindow
         closeWindow={this.props.closeWindow}
+        addCourse={this.props.addCourse}
       />
     );
   }

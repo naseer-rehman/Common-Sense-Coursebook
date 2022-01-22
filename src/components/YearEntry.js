@@ -44,6 +44,7 @@ class YearEntry extends React.Component {
                   <AddCourseButton 
                     openWindow={this.props.openWindow}
                     closeWindow={this.props.closeWindow}
+                    addCourse={this.props.addCourse}
                   />
                 </>
               )
