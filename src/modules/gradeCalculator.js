@@ -1,4 +1,4 @@
-const getTotalWeight = (assessments) => {
+export const getTotalWeight = (assessments) => {
   let totalWeight = 0;
   assessments.forEach(({weight}) => {
     totalWeight += weight;
@@ -10,7 +10,7 @@ const getTotalWeight = (assessments) => {
  * Calculates the weighted grade given a list of assessments.
  * @param {Array} assessments 
  */
-const calculateWeightedGrade = (assessments) => {
+export const calculateWeightedGrade = (assessments) => {
   let weightedGrade = 0;
   assessments.forEach(({grade, weight}) => {
     weightedGrade += grade * weight / 100;
@@ -23,7 +23,7 @@ const calculateWeightedGrade = (assessments) => {
  * @param {Array} assessments 
  * @returns 
  */
-const calculateAverageGrade = (assessments) => {
+export const calculateAverageGrade = (assessments) => {
   let totalWeight = 0;
   let sum = 0;
   assessments.forEach(({grade, weight}) => {
@@ -38,7 +38,7 @@ const calculateAverageGrade = (assessments) => {
  * @param {Array} assessments 
  * @returns achieved weight
  */
-const calculateAchievedWeight = (assessments) => {
+export const calculateAchievedWeight = (assessments) => {
   return getTotalWeight(assessments) / 100;
 };
 
@@ -48,13 +48,13 @@ const calculateAchievedWeight = (assessments) => {
  * @param {Array} targetGrade 
  * @returns additional grade required
  */
-const calculateAdditionalGradeNeeded = (assessments, targetGrade) => {
+export const calculateAdditionalGradeNeeded = (assessments, targetGrade) => {
   const finalWeight = 100 - getTotalWeight(assessments);
   const weightedGrade = calculateWeightedGrade(assessments);
   return 100 * ((targetGrade - weightedGrade) / finalWeight)
 };
 
-export {
+export default {
   calculateWeightedGrade,
   calculateAverageGrade,
   calculateAchievedWeight,

@@ -10,10 +10,12 @@ class AddCourseWindow extends React.Component {
     this.state = {
       courseNameValue: "",
       targetGradeValue: "",
+      creditValue: "",
       assessments: [], // [{id:1, name:"Quizzes", grade:69, weight:50},{id:2, name:"Midterm", grade:69, weight:50},{id:3, name:"Assignments", grade:69, weight:50}],
     };
     this.onEditName = this.onEditName.bind(this);
     this.onEditTargetGrade = this.onEditTargetGrade.bind(this);
+    this.onEditCredit = this.onEditCredit.bind(this);
     this.deleteAssessment = this.deleteAssessment.bind(this);
     this.updateAssessment = this.updateAssessment.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
@@ -86,6 +88,16 @@ class AddCourseWindow extends React.Component {
     });
   }
 
+  onEditCredit(e) {
+    const value = e.target.value;
+    this.setState(state => {
+      return {
+        ...state,
+        creditValue: value,
+      };
+    });
+  }
+
   onCancel() {
     this.props.closeWindow();
   }
@@ -95,8 +107,9 @@ class AddCourseWindow extends React.Component {
     this.props.addCourse({
       id: uuidv4(),
       name: this.state.courseNameValue,
-      targetGrade: parseInt(this.state.targetGradeValue),
+      targetGrade: Number(this.state.targetGradeValue),
       assessments: this.state.assessments.concat([]),
+      credit: Number(this.state.creditValue),
     });
     this.props.closeWindow();
   }
@@ -106,11 +119,19 @@ class AddCourseWindow extends React.Component {
       <Window classes={[]} >
         <div className="window-scrollable">
           <div className="center-content">
-            <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
-              <label htmlFor="courseNameInput">Course Name: </label>
-              <input onChange={this.onEditName} id="courseNameInput" type="text" />
-              <label htmlFor="targetGradeInput">Target Grade: </label>
-              <input onChange={this.onEditTargetGrade} id="targetGradeInput" type="text" />
+            <form className="course-info-form" onSubmit={(e) => e.preventDefault()} autoComplete="off">
+              <div className="course-info-form-input-container">
+                <label htmlFor="courseNameInput">Course Name:</label>
+                <input onChange={this.onEditName} id="courseNameInput" type="text" />
+              </div>
+              <div className="course-info-form-input-container">
+                <label htmlFor="targetGradeInput">Target Grade:</label>
+                <input onChange={this.onEditTargetGrade} id="targetGradeInput" type="text" />
+              </div>
+              <div className="course-info-form-input-container">
+                <label htmlFor="creditsInput">Credits:</label>
+                <input onChange={this.onEditCredit} id="creditsInput" type="text" />
+              </div>
             </form>
           </div>
           <div className="center-content">

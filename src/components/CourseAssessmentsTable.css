@@ -11,7 +11,7 @@
   margin-top: 25px;
 }
 
-.window-container .course-assessments-table .assessments-table-grid-cell {
+.window-container .course-assessments-table .assessments-table-grid-cell, .window-container .course-assessments-table .assessments-table-grid-cell input {
   width: 100%;
   height: 100%;
   background: none;

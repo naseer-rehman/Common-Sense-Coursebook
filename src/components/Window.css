@@ -12,7 +12,7 @@
 
 .window-container {
   background: #FFFFFF;
-  padding: 40px 250px;
+  padding: 50px;
   border-radius: 15px;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16);
 }
@@ -44,14 +44,14 @@
   align-items: center;
 }
 
-.window-container form > label {
+.window-container form label {
   color: #707070;
   font-size: 2.25rem;
   background: none;
   margin: 0 10px;
 }
 
-.window-container form > input {
+.window-container form input {
   border: none;
   outline: none;
   -webkit-appearance: none;

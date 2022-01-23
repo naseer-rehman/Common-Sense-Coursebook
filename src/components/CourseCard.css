@@ -1,18 +1,20 @@
 .course-card {
+  display: inline-block;
   font-family: 'Open Sans', Arial;
   color: #676767;
   font-weight: semi-bold;
   border-radius: 15px;
   width: 325px;
-  height: 212px;
+  /* height: 212px; */
+  padding: 20px 0;
   background: #FFFFFF;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
-  margin-right: 4.61%;
-  margin-bottom: 4.61%;
+  /* margin-right: 4.61%;
+  margin-bottom: 4.61%; */
 }
 
 .course-name-container {
-  height: 33.01%;
+  height: 25%;
   display: flex;
   justify-content: center;
   align-items: center;

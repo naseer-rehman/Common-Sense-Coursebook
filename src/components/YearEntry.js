@@ -35,22 +35,24 @@ class YearEntry extends React.Component {
             <span className="year-title">{this.props.name}</span>
           </button>
         </div>
-        <div className="course-card-list">
-          {
-            this.props.coursesHidden === false 
-              ? (
-                <>
-                  {this.props.courses.map(course => <CourseCard key={course.id} course={course} />)}
-                  <AddCourseButton 
-                    openWindow={this.props.openWindow}
-                    closeWindow={this.props.closeWindow}
-                    addCourse={this.props.addCourse}
-                  />
-                </>
-              )
-              : null
-          }
-        </div>
+        {
+          this.props.coursesHidden === false 
+            ? (
+              <div className="course-card-list">
+                {
+                  this.props.courses.map(course => 
+                    <CourseCard key={course.id} course={course} />
+                  )
+                }
+                <AddCourseButton 
+                  openWindow={this.props.openWindow}
+                  closeWindow={this.props.closeWindow}
+                  addCourse={this.props.addCourse}
+                />
+              </div>
+            )
+            : null
+        }
       </div>
     );
   }

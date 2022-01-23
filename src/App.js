@@ -19,6 +19,7 @@ class App extends React.Component {
               id: 1,
               name: "SPCOM 100",
               targetGrade: 80,
+              credit: 0.5,
               assessments: [
                 {
                   id: 1,
@@ -38,6 +39,7 @@ class App extends React.Component {
               id: 2,
               name: "CS 135",
               targetGrade: 80,
+              credit: 0.5,
               assessments: [
                 {
                   id: 1,
@@ -57,6 +59,7 @@ class App extends React.Component {
               id: 3,
               name: "MATH 136",
               targetGrade: 80,
+              credit: 0.5,
               assessments: [
                 {
                   id: 1,
@@ -83,6 +86,7 @@ class App extends React.Component {
               id: 1,
               name: "CS 246",
               targetGrade: 80,
+              credit: 0.5,
               assessments: [
                 {
                   id: 1,
@@ -109,6 +113,7 @@ class App extends React.Component {
               id: 1,
               name: "COMPSCI 1ZD3",
               targetGrade: 80,
+              credit: 0.5,
               assessments: [
                 {
                   id: 1,
