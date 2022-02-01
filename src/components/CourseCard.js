@@ -1,6 +1,7 @@
 import React from "react";
 import "./CourseCard.css";
 import { calculateAverageGrade, calculateAchievedWeight } from "../modules/gradeCalculator";
+import EditCourseButton from "./EditCourseButton";
 
 const CourseInfoRow = ({name, value}) => {
   return (
@@ -12,6 +13,10 @@ const CourseInfoRow = ({name, value}) => {
 };
 
 class CourseCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const round = (num, dp = 0) => Math.floor(num * Math.pow(10, dp) + 0.5) / Math.pow(10, dp);
     const course = this.props.course;
@@ -32,6 +37,12 @@ class CourseCard extends React.Component {
           <CourseInfoRow name="Credit:" value={`${credit}`} />
           <CourseInfoRow name="Weight Achieved:" value={`${weightAchieved} / 1`} />
         </div>
+        <EditCourseButton 
+          openWindow={this.props.openWindow}
+          closeWindow={this.props.closeWindow}
+          editCourse={this.props.editCourse}
+          course={this.props.course}
+        />
       </div>);
   }
 };

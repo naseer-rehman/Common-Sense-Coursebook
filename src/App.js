@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import YearList from "./components/YearList";
 import { v4 as uuidv4 } from "uuid";
 import Footer from './components/Footer';
+import CourseWindow from "./components/CourseWindow";
 
 class App extends React.Component {
   constructor(props) {
@@ -133,9 +134,23 @@ class App extends React.Component {
         }
       ],
       theme: "light",
-      currentWindow: null, //<AddYearWindow />,
+      currentWindow: null,
     };
+    /* this.state.currentWindow = <CourseWindow 
+      initialCourseInfo={this.state.years[0].courses[0]}
+      closeWindow={() => this.closeWindow()}
+      onFinish={(state, initialCourseInfo) => {
+        this.editCourse(1, {
+          name: state.courseNameValue,
+          targetGrade: Number(state.targetGradeValue),
+          credit: Number(state.creditValue),
+          assessments: state.assessments,
+          id: initialCourseInfo.id,
+        });
+      }}
+    />; */
     this.addCourse = this.addCourse.bind(this);
+    this.editCourse = this.editCourse.bind(this);
   }
 
   toggleYearVisible(yearId, isVisible) {
@@ -179,6 +194,19 @@ class App extends React.Component {
         return state;
       year.courses.push(course);
       return { ...state };
+    });
+  }
+
+  editCourse(yearId, editedCourse) {
+    this.setState(state => {
+      const year = state.years.find(year => year.id === yearId);
+      const courseIndex = year.courses.findIndex(course => course.id === editedCourse.id);
+      const course = year.courses[courseIndex];
+      year.courses[courseIndex] = {
+        ...course,
+        ...editedCourse,
+      };
+      return state;
     });
   }
 
@@ -278,6 +306,7 @@ class App extends React.Component {
           editYearName={(yearId, yearName) => this.editYearName(yearId, yearName)}
           deleteYear={(yearId) => this.deleteYear(yearId)}
           addCourse={this.addCourse}
+          editCourse={this.editCourse}
         />
         {this.state.currentWindow}
         <Footer />

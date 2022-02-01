@@ -23,6 +23,7 @@ class YearList extends Component {
                 this.props.toggleYearVisible(year.id, visible);
               }}
               key={year.id} 
+              yearId={year.id}
               name={year.name} 
               coursesHidden={year.hidden} 
               courses={year.courses}
@@ -31,6 +32,7 @@ class YearList extends Component {
               editYearName={(newYearName) => this.props.editYearName(year.id, newYearName)}
               deleteYear={() => this.props.deleteYear(year.id)}
               addCourse={(course) => this.props.addCourse(year.id, course)}
+              editCourse={(course) => this.props.editCourse(year.id, course)}
             />;
           })
         }

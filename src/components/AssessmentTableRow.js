@@ -5,7 +5,7 @@ class AssessmentTableRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.assessmentName,
+      assessmentName: this.props.assessmentName,
       weight: this.props.assessmentWeight,
       grade: this.props.assessmentGrade,
     };
@@ -17,7 +17,7 @@ class AssessmentTableRow extends React.Component {
     this.setState(state => {
       return {
         ...state,
-        name: newValue,
+        assessmentName: newValue,
       }
     });
   }
@@ -46,7 +46,7 @@ class AssessmentTableRow extends React.Component {
     this.props.updateAssessment(
       this.props.assessmentId,
       {
-        name: this.state.name,
+        assessmentName: this.state.assessmentName,
         weight: Number(this.state.weight),
         grade: Number(this.state.grade),
       }
@@ -59,7 +59,7 @@ class AssessmentTableRow extends React.Component {
   }
 
   render() {
-    const { name, weight, grade } = this.state;
+    const { assessmentName , weight, grade } = this.state;
 
     return (
       <>
@@ -67,7 +67,7 @@ class AssessmentTableRow extends React.Component {
           autoComplete="new-password" 
           onBlur={() => this.onBlur()}
           onChange={(e) => this.editName(e)} 
-          value={name}
+          value={assessmentName}
           className="assessments-table-grid-cell"
         />
         <input

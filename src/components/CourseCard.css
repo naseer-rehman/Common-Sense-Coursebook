@@ -1,4 +1,5 @@
 .course-card {
+  position: relative;
   display: inline-block;
   font-family: 'Open Sans', Arial;
   color: #676767;
@@ -46,4 +47,15 @@
 .course-info-row > div.row-right {
   grid-column-start: right;
   grid-column-end: end;
+}
+
+.course-edit-button {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
 }

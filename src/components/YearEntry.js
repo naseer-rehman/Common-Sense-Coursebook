@@ -41,7 +41,15 @@ class YearEntry extends React.Component {
               <div className="course-card-list">
                 {
                   this.props.courses.map(course => 
-                    <CourseCard key={course.id} course={course} />
+                    <CourseCard 
+                      yearId={this.props.yearId} 
+                      courseId={course.id} 
+                      key={course.id} 
+                      course={course} 
+                      openWindow={this.props.openWindow} 
+                      closeWindow={this.props.closeWindow} 
+                      editCourse={this.props.editCourse}
+                    />
                   )
                 }
                 <AddCourseButton 

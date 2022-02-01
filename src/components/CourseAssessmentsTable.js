@@ -6,7 +6,7 @@ import AssessmentTableRow from "./AssessmentTableRow";
 class CourseAssessmentsTable extends React.Component {
   addBlankAssessment() {
     this.props.addAssessment({
-      name: "",
+      assessmentName: "",
       grade: "",
       weight: ""
     });
@@ -24,7 +24,7 @@ class CourseAssessmentsTable extends React.Component {
               return (
                 <AssessmentTableRow 
                   key={assessment.id}
-                  assessmentName={assessment.name} // Just send the assessment obj
+                  assessmentName={assessment.assessmentName} // Just send the assessment obj
                   assessmentGrade={assessment.grade}
                   assessmentWeight={assessment.weight}
                   assessmentId={assessment.id}
