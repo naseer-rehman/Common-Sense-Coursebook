@@ -2,14 +2,15 @@
   position: relative;
   display: inline-block;
   font-family: 'Open Sans', Arial;
-  color: #676767;
+  color: var(--color);
   font-weight: semi-bold;
   border-radius: 15px;
   width: 325px;
   /* height: 212px; */
   padding: 20px 0;
-  background: #FFFFFF;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+  background: var(--course-card-background);
+  border: var(--course-card-border);
+  box-shadow: var(--course-card-box-shadow);
   /* margin-right: 4.61%;
   margin-bottom: 4.61%; */
 }

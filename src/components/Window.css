@@ -4,14 +4,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.24);
+  background-color: rgba(0,0,0,var(--window-background-alpha));
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .window-container {
-  background: #FFFFFF;
+  background: var(--window-background);
   padding: 50px;
   border-radius: 15px;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16);
@@ -45,7 +45,7 @@
 }
 
 .window-container form label {
-  color: #707070;
+  color: var(--window-input-color);
   font-size: 2.25rem;
   background: none;
   margin: 0 10px;
@@ -55,13 +55,13 @@
   border: none;
   outline: none;
   -webkit-appearance: none;
-  background-color: #F1F1F1;
+  background-color: var(--window-input-background);
   text-align: center;
   width: 284px;
   height: 62px;
   border-radius: 10px 10px 0 0;
   font-size: 2.25rem;
-  color: #707070;
+  color: var(--window-input-color);
   border-bottom: 2px solid #656565;
 }
 

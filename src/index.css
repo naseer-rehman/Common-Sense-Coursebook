@@ -37,23 +37,65 @@ body {
   --black: black;
   --skyblue: #0395DE;
   --grey: #707070;
-  
+  --light-grey: #B9B9B9;
+
+  /* Background */
   --primary-text: var(--grey);
   --background-color: var(--white);
   --color: var(--white);
   --secondary-color: var(--skyblue);
+
+  /* Course Card Properties */
+  --dark-course-card-border: solid 2px var(--skyblue);
+  --light-course-card-border: none;
+  --dark-course-card-background: none;
+  --light-course-card-background: var(--white);
+  --dark-course-card-box-shadow: none;
+  --light-course-card-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
 }
 
 body.light {
   --background-color: var(--white);
   --color: var(--black);
   --secondary-color: var(--skyblue);
+
+  /* Course Card Properties */
+  --course-card-background: var(--light-course-background);
+  --course-card-border: var(--light-course-card-border);
+  --course-card-box-shadow: var(--light-course-card-box-shadow);
+  --add-course-button-color: var(--light-grey);
+
+  /* Year Entry Properties */
+  --title-dash-color: #6D6D6D;
+
+  /* Window Properties */
+  --window-background: var(--white);
+  --window-background-alpha: 0.24;
+  --window-input-background: #707070;
+  --window-input-color: #707070;
+  --window-color: #cccccc;
 }
 
 body.dark {
   --background-color: var(--black);
   --color: var(--white);
   --secondary-color: var(--skyblue);
+
+  /* Course Card Properties */
+  --course-card-background: var(--dark-course-background);
+  --course-card-border: var(--dark-course-card-border);
+  --course-card-box-shadow: var(--dark-course-card-box-shadow);
+  --add-course-button-color: var(--skyblue);
+
+  /* Year Entry Properties */
+  --title-dash-color: var(--light-grey);
+
+  /* Window Properties */
+  --window-background: #2a2a2a;
+  --window-background-alpha: 0.6;
+  --window-input-background: #1b1b1b;
+  --window-input-color: #cccccc;
+  --window-color: #cccccc;
 }
 
 button {

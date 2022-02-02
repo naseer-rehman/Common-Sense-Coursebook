@@ -28,5 +28,5 @@
 }
 
 .course-add-card .plus-sign {
-  background: #B9B9B9;
+  background: var(--add-course-button-color);
 }
