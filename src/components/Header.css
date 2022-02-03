@@ -1,52 +1,48 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .header {
   position: relative;
-  height: 70px;
+  margin: 13.5px 3.075%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.header-left a{
+.header-left > span {
   font-size: 32px;
   font-weight: bold;
   display: inline-block;
 }
 
-.header-left span {
+.header-left > span > span {
   color: var(--secondary-color);
 }
 
-.header > div {
+/* .header > div {
   display: flex;
   align-items: center;
-}
+} */
 
 .header-left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
   height: 100%;
-  width: 50%;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 .header-right {
-  height: 100%;
-  width: 20%;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.header-right button {
-  font-size: 25px;
-}
-
-div.header-space-between {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
+  height: 100%;
+}
+
+.header-right > button {
+  font-size: 25px;
+  margin-right: 30px;
+}
+
+.header-right > button:last-child {
+  margin-right: 0px;
 }
 
 .header-space-between > div {
@@ -73,5 +69,3 @@ div.header-space-between {
   justify-content: center;
   align-items: center;
 }
-
-

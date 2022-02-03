@@ -13,16 +13,12 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="header-left">
-          <a className="header-title"><span>C</span>ommon <span>S</span>ense <span>C</span>oursebook</a>
+          <span className="header-title"><span>C</span>ommon <span>S</span>ense <span>C</span>oursebook</span>
         </div>
 
         <div className="header-right">
-          <div className="header-space-between">
-            <div>
-              <DarkMode />
-              <button className="help-button">Help</button>
-            </div>
-          </div>
+          <DarkMode />
+          <button className="help-button">Help</button>
         </div>
       </div>
 
