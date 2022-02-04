@@ -13,10 +13,6 @@ const CourseInfoRow = ({name, value}) => {
 };
 
 class CourseCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const round = (num, dp = 0) => Math.floor(num * Math.pow(10, dp) + 0.5) / Math.pow(10, dp);
     const course = this.props.course;

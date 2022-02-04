@@ -11,7 +11,7 @@
   margin-right: 30px;
 }
 
-.theme-button-logo {
+body.light .theme-button-logo {
   width: 50%;
   height: 50%;
   background: var(--skyblue);
@@ -19,14 +19,10 @@
   mask: url(../images/darkmode.svg) no-repeat center;
 }
 
-.theme-button.clicked .theme-button-logo {
+body.dark .theme-button-logo {
+  width: 50%;
+  height: 50%;
   background: var(--skyblue);
   -webkit-mask: url(../images/lightmode.svg) no-repeat center;
   mask: url(../images/lightmode.svg) no-repeat center;
 }
-
-/* .theme-button-logo.clicked {
-  background: var(--skyblue);
-  -webkit-mask: url(../images/lightmode.svg) no-repeat center;
-  mask: url(../images/lightmode.svg) no-repeat center;
-} */

@@ -1,15 +1,9 @@
 import React from "react";
 import "./Header.css"
-// import lightmode from "../images/lightmode.svg";
-import DarkMode from "./DarkMode.js";
-
+import ThemeButton from "./ThemeButton.js";
 
 class Header extends React.Component {
-
-
-
   render() {
-
     return (
       <div className="header">
         <div className="header-left">
@@ -17,13 +11,15 @@ class Header extends React.Component {
         </div>
 
         <div className="header-right">
-          <DarkMode />
+          <ThemeButton 
+            theme={this.props.theme}
+            changeTheme={this.props.changeTheme}
+          />
           <button className="help-button">Help</button>
         </div>
       </div>
-
     );
   }
-}
+};
 
 export default Header;

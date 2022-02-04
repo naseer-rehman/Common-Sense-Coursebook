@@ -54,9 +54,11 @@ export const calculateAdditionalGradeNeeded = (assessments, targetGrade) => {
   return 100 * ((targetGrade - weightedGrade) / finalWeight)
 };
 
-export default {
+const gradeCalculator = {
   calculateWeightedGrade,
   calculateAverageGrade,
   calculateAchievedWeight,
   calculateAdditionalGradeNeeded
 };
+
+export default gradeCalculator;

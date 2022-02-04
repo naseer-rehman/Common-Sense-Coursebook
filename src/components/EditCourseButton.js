@@ -1,5 +1,4 @@
 import React from "react";
-import CourseWindow from "./CourseWindow";
 import EditCourseWindow from "./EditCourseWindow";
 
 class EditCourseButton extends React.Component {

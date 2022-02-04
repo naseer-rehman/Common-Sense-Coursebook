@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import YearList from "./components/YearList";
 import { v4 as uuidv4 } from "uuid";
 import Footer from './components/Footer';
-import CourseWindow from "./components/CourseWindow";
+import userData from "./modules/userData";
 
 class App extends React.Component {
   constructor(props) {
@@ -133,24 +133,12 @@ class App extends React.Component {
           ],
         }
       ],
-      theme: "light",
+      theme: userData.getTheme(),
       currentWindow: null,
     };
-    /* this.state.currentWindow = <CourseWindow 
-      initialCourseInfo={this.state.years[0].courses[0]}
-      closeWindow={() => this.closeWindow()}
-      onFinish={(state, initialCourseInfo) => {
-        this.editCourse(1, {
-          name: state.courseNameValue,
-          targetGrade: Number(state.targetGradeValue),
-          credit: Number(state.creditValue),
-          assessments: state.assessments,
-          id: initialCourseInfo.id,
-        });
-      }}
-    />; */
     this.addCourse = this.addCourse.bind(this);
     this.editCourse = this.editCourse.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
   }
 
   toggleYearVisible(yearId, isVisible) {
@@ -289,14 +277,20 @@ class App extends React.Component {
     });
   }
 
-  deleteAssessment(yearId, courseId, assessmentId) {
-
+  changeTheme(newTheme) {
+    this.setState(state => {
+      return {
+        ...state,
+        theme: newTheme,
+      };
+    });
+    userData.saveTheme(newTheme);
   }
 
   render() {
     return (
       <>
-        <Header />
+        <Header theme={this.state.theme} changeTheme={this.changeTheme} />
         <YearList 
           toggleYearVisible={(yearId, isVisible) => this.toggleYearVisible(yearId, isVisible)}
           yearList={this.state.years}
