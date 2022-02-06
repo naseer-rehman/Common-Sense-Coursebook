@@ -15,6 +15,7 @@ class App extends React.Component {
       currentWindow: null,
     };
     this.addCourse = this.addCourse.bind(this);
+    this.deleteCourse = this.deleteCourse.bind(this);
     this.editCourse = this.editCourse.bind(this);
     this.changeTheme = this.changeTheme.bind(this);
   }
@@ -61,6 +62,15 @@ class App extends React.Component {
       if (!year)
         return state;
       year.courses.push(course);
+      userData.saveYearData(state.years);
+      return { ...state };
+    });
+  }
+
+  deleteCourse(yearId, courseId) {
+    this.setState(state => {
+      const year = state.years.find(year => year.id === yearId);
+      year.courses = year.courses.filter(course => course.id !== courseId);
       userData.saveYearData(state.years);
       return { ...state };
     });
@@ -178,6 +188,7 @@ class App extends React.Component {
           editYearName={(yearId, yearName) => this.editYearName(yearId, yearName)}
           deleteYear={(yearId) => this.deleteYear(yearId)}
           addCourse={this.addCourse}
+          deleteCourse={this.deleteCourse}
           editCourse={this.editCourse}
         />
         {this.state.currentWindow}

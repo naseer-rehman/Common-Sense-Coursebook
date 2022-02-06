@@ -37,6 +37,7 @@ class CourseCard extends React.Component {
           openWindow={this.props.openWindow}
           closeWindow={this.props.closeWindow}
           editCourse={this.props.editCourse}
+          deleteCourse={this.props.deleteCourse}
           course={this.props.course}
         />
       </div>);

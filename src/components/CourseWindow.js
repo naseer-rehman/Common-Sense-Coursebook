@@ -1,6 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import "./AddCourseWindow.css";
+import "./CourseWindow.css";
 import CourseAssessmentsTable from "./CourseAssessmentsTable";
 import Window from "./Window";
 
@@ -99,6 +99,11 @@ class CourseWindow extends React.Component {
     });
   }
 
+  onDelete() {
+    this.props.deleteCourse(this.props.initialCourseInfo.id); // courseId?
+    this.props.closeWindow();
+  }
+
   onCancel() {
     this.props.closeWindow();
   }
@@ -138,9 +143,19 @@ class CourseWindow extends React.Component {
             />
           </div>
         </div>
-        <div className="window-footer">
-          <button onClick={() => this.onCancel()} className="cancel-button">Cancel</button>
-          <button onClick={() => this.onFinish()} className="finish-button">Finish</button>
+        <div className="window-footer window-footer-button-container">
+          <div className="left-buttons">
+            {
+              this.props.editingCourse && 
+              <button onClick={() => this.onDelete()} className="delete-button delete-course-button">
+                <div className="trash-sign"></div>
+              </button>
+            }
+            <button onClick={() => this.onCancel()} className="cancel-button">Cancel</button>
+          </div>
+          <div className="right-buttons">
+            <button onClick={() => this.onFinish()} className="finish-button">Finish</button>
+          </div>
         </div>
       </Window>
     );

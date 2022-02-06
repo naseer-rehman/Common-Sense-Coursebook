@@ -1,7 +1,7 @@
 import React from "react";
 import CourseWindow from "./CourseWindow";
 
-const EditCourseWindow = ({course, editCourse, closeWindow}) => {
+const EditCourseWindow = ({course, editCourse, deleteCourse, closeWindow}) => {
   return <CourseWindow
     initialCourseInfo={course} 
     onFinish={(state, initialCourseInfo) => {
@@ -14,6 +14,8 @@ const EditCourseWindow = ({course, editCourse, closeWindow}) => {
       });
     }}
     closeWindow={closeWindow}
+    deleteCourse={deleteCourse}
+    editingCourse={true}
   />;
 };
 

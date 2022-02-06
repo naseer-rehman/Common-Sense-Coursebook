@@ -96,7 +96,9 @@
 }
 
 .window-footer-button-container {
-  width: 100%;
+  width: 88.5%;
+  margin-left: 5.75%;
+  margin-right: 5.74%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -9,3 +9,16 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+.delete-course-button .trash-sign {
+  aspect-ratio: 1;
+  height: 80%;
+  width: auto;
+  background: var(--delete-color);
+} 
+
+.window-footer-button-container .left-buttons, .window-footer-button-container .right-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

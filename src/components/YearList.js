@@ -32,6 +32,7 @@ class YearList extends Component {
               editYearName={(newYearName) => this.props.editYearName(year.id, newYearName)}
               deleteYear={() => this.props.deleteYear(year.id)}
               addCourse={(course) => this.props.addCourse(year.id, course)}
+              deleteCourse={(courseId) => this.props.deleteCourse(year.id, courseId)}
               editCourse={(course) => this.props.editCourse(year.id, course)}
             />;
           })

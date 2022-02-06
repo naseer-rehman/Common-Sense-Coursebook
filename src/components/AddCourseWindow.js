@@ -19,6 +19,8 @@ const AddCourseWindow = ({closeWindow, addCourse}) => {
       });
     }}
     closeWindow={closeWindow}
+    deleteCourse={() => {}}
+    editingCourse={false}
   />;
 }
 

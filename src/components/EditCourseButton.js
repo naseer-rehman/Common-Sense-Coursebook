@@ -13,6 +13,7 @@ class EditCourseButton extends React.Component {
       <EditCourseWindow 
         course={this.props.course}
         editCourse={this.props.editCourse}
+        deleteCourse={this.props.deleteCourse}
         closeWindow={this.props.closeWindow}
       />
     );
