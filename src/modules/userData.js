@@ -2,11 +2,14 @@
 // course and app data.
 import store from "store2";
 
+let saveCount = 0;
+
 /**
  * Saves all the year datas to the brower's local storage.
  * @param {Array} yearData 
  */
 const saveYearData = (yearData) => {
+  console.log(`${++saveCount} - Saving year data`);
   try {
     store.set("yearData", yearData);
   } catch (e) {
@@ -66,6 +69,8 @@ const userDataFunctions = {
   getState,
   saveTheme,
   getTheme,
+  saveYearData,
+  getYearData,
 };
 
 export default userDataFunctions;

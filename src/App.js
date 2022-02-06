@@ -10,129 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      years: [
-        {
-          hidden: false,
-          id: 1,
-          name: "Year 1",
-          courses: [
-            {
-              id: 1,
-              name: "SPCOM 100",
-              targetGrade: 80,
-              credit: 0.5,
-              assessments: [
-                {
-                  id: 1,
-                  assessmentName: "quizzes",
-                  weight: 50,
-                  grade: 75,
-                },
-                {
-                  id: 2,
-                  assessmentName: "midterm",
-                  weight: 25,
-                  grade: 50,
-                }
-              ],
-            },
-            {
-              id: 2,
-              name: "CS 135",
-              targetGrade: 80,
-              credit: 0.5,
-              assessments: [
-                {
-                  id: 1,
-                  assessmentName: "quizzes",
-                  weight: 50,
-                  grade: 75,
-                },
-                {
-                  id: 2,
-                  assessmentName: "midterm",
-                  weight: 25,
-                  grade: 50,
-                }
-              ],
-            },
-            {
-              id: 3,
-              name: "MATH 136",
-              targetGrade: 80,
-              credit: 0.5,
-              assessments: [
-                {
-                  id: 1,
-                  assessmentName: "quizzes",
-                  weight: 50,
-                  grade: 75,
-                },
-                {
-                  id: 2,
-                  assessmentName: "midterm",
-                  weight: 25,
-                  grade: 50,
-                }
-              ],
-            }
-          ],
-        },
-        {
-          hidden: false,
-          id: 2,
-          name: "Year 2",
-          courses: [
-            {
-              id: 1,
-              name: "CS 246",
-              targetGrade: 80,
-              credit: 0.5,
-              assessments: [
-                {
-                  id: 1,
-                  assessmentName: "quizzes",
-                  weight: 50,
-                  grade: 75,
-                },
-                {
-                  id: 2,
-                  assessmentName: "midterm",
-                  weight: 25,
-                  grade: 50,
-                }
-              ],
-            }
-          ],
-        },
-        {
-          hidden: true,
-          id: 3,
-          name: "Year 3",
-          courses: [
-            {
-              id: 1,
-              name: "COMPSCI 1ZD3",
-              targetGrade: 80,
-              credit: 0.5,
-              assessments: [
-                {
-                  id: 1,
-                  assessmentName: "quizzes",
-                  weight: 50,
-                  grade: 75,
-                },
-                {
-                  id: 2,
-                  assessmentName: "midterm",
-                  weight: 25,
-                  grade: 50,
-                }
-              ],
-            }
-          ],
-        }
-      ],
+      years: userData.getYearData(),
       theme: userData.getTheme(),
       currentWindow: null,
     };
@@ -144,7 +22,7 @@ class App extends React.Component {
   toggleYearVisible(yearId, isVisible) {
     this.setState((state) => {
       console.log(state.years);
-      return {
+      const newState = {
         ...state,
         years: state.years.map(year => {
           return {
@@ -153,6 +31,8 @@ class App extends React.Component {
           };
         }),
       };
+      userData.saveYearData(newState.years);
+      return newState;
     });
   }
 
@@ -181,6 +61,7 @@ class App extends React.Component {
       if (!year)
         return state;
       year.courses.push(course);
+      userData.saveYearData(state.years);
       return { ...state };
     });
   }
@@ -194,13 +75,14 @@ class App extends React.Component {
         ...course,
         ...editedCourse,
       };
+      userData.saveYearData(state.years);
       return state;
     });
   }
 
   addYear(yearName) {
     this.setState((state) => {
-      return {
+      const newState = {
         ...state,
         years: state.years.concat([{
           hidden: false,
@@ -209,12 +91,14 @@ class App extends React.Component {
           courses: [],
         }]),
       };
+      userData.saveYearData(newState.years);
+      return newState;
     });
   }
 
   editYearName(yearId, newYearName) {
     this.setState((state) => {
-      return {
+      const newState = {
         ...state,
         years: state.years.map((year) => {
           return year.id === yearId
@@ -222,42 +106,35 @@ class App extends React.Component {
             : year;
         }),
       };
+      userData.saveYearData(newState.years);
+      return newState;
     });
   }
 
   deleteYear(yearId) {
     this.setState((state) => {
-      return {
+      const newState = {
         ...state,
         years: state.years.filter((year) => {
           return year.id !== yearId;
         }),
       };
+      userData.saveYearData(newState.years);
+      return newState;
     });
   }
 
   addAssessment(yearId, courseId, assessment) {
     this.setState((state) => {
-      return {
-        ...state,
-        years: state.years.map((year) => {
-          if (year.id !== yearId)
-            return year;
-          return {
-            ...year,
-            courses: year.courses.map((course) => {
-              if (course.id !== courseId)
-                return course;
-              return {
-                ...course,
-                assessments: course.assessments.concat([{
-                  ...assessment
-                }]),
-              }
-            }),
-          }
-        }),
-      };
+      const year = state.years.find(year => year.id === yearId);
+      const course = year 
+        ? year.courses.find(course => course.id === courseId)
+        : null;
+      course.asessments = course 
+        ? course.assessments.concat([{ ...assessment }])
+        : course.assessments;
+      userData.saveYearData(state.years);
+      return { ...state };
     });
   }
 
@@ -273,6 +150,7 @@ class App extends React.Component {
       for (const key of editedProperties.keys()) {
         assessment[key] = editedProperties[key];
       }
+      userData.saveYearData(state.years);
       return {...state};
     });
   }
