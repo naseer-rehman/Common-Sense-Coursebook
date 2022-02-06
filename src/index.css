@@ -73,7 +73,7 @@ body.light {
   --window-background-alpha: 0.24;
   --window-input-background: #e6e6e6;
   --window-input-label-color: var(--black);
-  --window-input-color: #cccccc;
+  --window-input-color: var(--black);
   --window-color: #cccccc;
 }
 
