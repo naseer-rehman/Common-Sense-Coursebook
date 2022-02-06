@@ -45,7 +45,7 @@
 }
 
 .window-container form label {
-  color: var(--window-input-color);
+  color: var(--window-input-label-color);
   font-size: 2.25rem;
   background: none;
   margin: 0 10px;
