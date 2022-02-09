@@ -22,7 +22,9 @@ const saveYearData = (yearData) => {
  * @returns {array}
  */
 const getYearData = () => {
-  return store.get("yearData");
+  let years = store.get("yearData");
+  years = years ? years : [];
+  return years;
 };
 
 /**
@@ -38,7 +40,9 @@ const saveTheme = (theme = "light") => {
 };
 
 const getTheme = () => {
-  return store.get("theme");
+  let theme = store.get("theme");
+  theme = theme ? theme : "light";
+  return theme;
 };
 
 /**
