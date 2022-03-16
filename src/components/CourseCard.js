@@ -20,7 +20,8 @@ class CourseCard extends React.Component {
     const average = round(calculateAverageGrade(assessments), 1);
     const targetGrade = round(course.targetGrade, 2);
     const credit = round(course.credit, 2);
-    const weightAchieved = round(calculateWeightedGrade(assessments), 2);
+    const weightAchieved = round(calculateAchievedWeight(assessments), 2);
+    const weightedGrade = round(calculateWeightedGrade(assessments), 2);
 
     return (
       <div className="course-card">
@@ -31,6 +32,7 @@ class CourseCard extends React.Component {
           <CourseInfoRow name="Average:" value={`${average}%`}/>
           <CourseInfoRow name="Target Grade:" value={`${targetGrade}%`} />
           <CourseInfoRow name="Credit:" value={`${credit}`} />
+          <CourseInfoRow name="Weighted Grade:" value={`${weightedGrade}%`} />
           <CourseInfoRow name="Weight Achieved:" value={`${weightAchieved} / 1`} />
         </div>
         <EditCourseButton 
