@@ -1,3 +1,4 @@
+import "./AddCourseWindow.css";
 import CourseWindow from "./CourseWindow";
 import { v4 as uuidv4 } from "uuid";
 
