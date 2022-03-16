@@ -1,6 +1,6 @@
 import React from "react";
 import "./CourseCard.css";
-import { calculateAverageGrade, calculateAchievedWeight } from "../modules/gradeCalculator";
+import { calculateAverageGrade, calculateAchievedWeight, calculateWeightedGrade } from "../modules/gradeCalculator";
 import EditCourseButton from "./EditCourseButton";
 
 const CourseInfoRow = ({name, value}) => {
@@ -20,7 +20,7 @@ class CourseCard extends React.Component {
     const average = round(calculateAverageGrade(assessments), 1);
     const targetGrade = round(course.targetGrade, 2);
     const credit = round(course.credit, 2);
-    const weightAchieved = round(calculateAchievedWeight(assessments), 2);
+    const weightAchieved = round(calculateWeightedGrade(assessments), 2);
 
     return (
       <div className="course-card">
