@@ -31,3 +31,24 @@
   overflow-y: scroll;
   max-height: 50vh;
 }
+
+.course-window > .window-scrollable::-webkit-scrollbar {
+  width: 10px;
+}
+
+.course-window > .window-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.course-window > .window-scrollable::-webkit-scrollbar-thumb {
+  background: rgb(100, 100, 100);
+  border-radius: 5px;
+}
+
+.course-window > .window-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgb(89, 89, 89);
+}
+
+.course-window > .window-scrollable::-webkit-scrollbar-thumb:active {
+  background: rgb(78, 78, 78);
+}
