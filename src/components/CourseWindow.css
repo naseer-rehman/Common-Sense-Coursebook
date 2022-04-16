@@ -22,3 +22,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.course-window {
+  width: 50vw;
+}
+
+.course-window > .window-scrollable {
+  overflow-y: scroll;
+  max-height: 50vh;
+}

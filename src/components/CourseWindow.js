@@ -115,8 +115,8 @@ class CourseWindow extends React.Component {
 
   render() {
     return (
-      <Window classes={[]} >
-        <div className="window-scrollable">
+      <Window classes={["course-window"]} >
+        <div className="window-scrollable hide-scroll-bar">
           <div className="center-content">
             <form className="course-info-form" onSubmit={(e) => e.preventDefault()} autoComplete="off">
               <div className="course-info-form-input-container">
