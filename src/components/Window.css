@@ -52,7 +52,6 @@
 }
 
 .window-container form input {
-  border: none;
   outline: none;
   -webkit-appearance: none;
   background-color: var(--window-input-background);
@@ -62,8 +61,21 @@
   border-radius: 10px 10px 0 0;
   font-size: 2.25rem;
   color: var(--window-input-color);
+  border: none;
   border-bottom: 2px solid #656565;
 }
+
+.window-container form .stacked-input > input {
+  border: 2px solid #656565;
+}
+
+.window-container form .stacked-input > label {
+  border: 2px solid #656565;
+  border-top: none;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
 
 .window-container button {
   border: none;

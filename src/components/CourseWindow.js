@@ -119,17 +119,17 @@ class CourseWindow extends React.Component {
         <div className="window-scrollable">
           <div className="center-content">
             <form className="course-info-form" onSubmit={(e) => e.preventDefault()} autoComplete="off">
-              <div className="course-info-form-input-container">
-                <label htmlFor="courseNameInput">Course Name:</label>
+              <div className="course-info-form-input-container stacked-input">
                 <input onChange={this.onEditName} id="courseNameInput" type="text" value={this.state.courseNameValue} />
+                <label htmlFor="courseNameInput">Course Name</label>
               </div>
-              <div className="course-info-form-input-container">
-                <label htmlFor="targetGradeInput">Target Grade:</label>
+              <div className="course-info-form-input-container stacked-input">
                 <input onChange={this.onEditTargetGrade} id="targetGradeInput" type="text" value={this.state.targetGradeValue} />
+                <label htmlFor="targetGradeInput">Target Grade</label>
               </div>
-              <div className="course-info-form-input-container">
-                <label htmlFor="creditsInput">Credits:</label>
+              <div className="course-info-form-input-container stacked-input">
                 <input onChange={this.onEditCredit} id="creditsInput" type="text" value={this.state.creditValue}/>
+                <label htmlFor="creditsInput">Credits</label>
               </div>
             </form>
           </div>
