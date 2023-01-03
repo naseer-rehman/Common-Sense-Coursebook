@@ -15,7 +15,7 @@ class Header extends React.Component {
             theme={this.props.theme}
             changeTheme={this.props.changeTheme}
           />
-          <button className="help-button">Help</button>
+          {/* <button className="help-button">Help</button> */}
         </div>
       </div>
     );
